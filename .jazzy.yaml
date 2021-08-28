@@ -1,0 +1,7 @@
+# MFMailComposeWrapper document generator jazzy settings
+
+copyright: Copyright 2021 Pavel Moslienko
+author: moslienko
+xcodebuild_arguments: [-target, MFMailComposeWrapper-iOS]
+clean: true
+output: ./Documentation
