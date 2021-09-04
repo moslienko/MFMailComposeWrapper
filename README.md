@@ -23,12 +23,14 @@
 # MFMailComposeWrapper
 
 <p align="center">
-ℹ️ Short description of MFMailComposeWrapper
+ℹ️ Opening an email application in Swift iOS App.
 </p>
 
 ## Features
 
-- [x] ℹ️ Add MFMailComposeWrapper features
+- [x] ℹ️ Easy to use
+- [x] ℹ️ Support third-party application email clients
+- [x] ℹ️ Support iOS 9+
 
 ## Example
 
@@ -77,7 +79,38 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 ## Usage
 
-ℹ️ Describe the usage of your Kit
+```swift
+let data = MFMailData(emails: ["test@gmail.com"], subject: "My subject", messageBody: "Hello world! 😀")
+let mailWrapped = MFMailComposeWrapper()
+        
+ mailWrapped.presentMailController(
+      from: self,
+      data: data,
+      presented: { isMFMailCompose in
+          print("Mail presented - \(isMFMailCompose)")
+      }, failedPresent: {
+            print("Failed present mail")
+       }
+   )
+        
+   mailWrapped.mailComposeControllerFinished = { error in
+        print("MailComposeController finished with error - \(error)")
+    }
+```
+
+Do not forget to add elements to *info.plist* file
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+   <array>
+      <string>googlegmail</string>
+      <string>ms-outlook</string>
+      <string>ymail</string>
+      <string>readdle-spark</string>
+   </array>
+```
+
+
 
 ## Contributing
 Contributions are very welcome 🙌
