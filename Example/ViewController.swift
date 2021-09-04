@@ -13,31 +13,42 @@ import MFMailComposeWrapper
 
 /// The ViewController
 class ViewController: UIViewController {
-
-    // MARK: Properties
     
-    /// The Label
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "🚀\nMFMailComposeWrapper\nExample"
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
-        return label
-    }()
+    @IBOutlet private weak var sendMailButton: UIButton!
+    
+    public class var fromXib: ViewController {
+        ViewController(nibName: "ViewController", bundle: nil)
+    }
     
     // MARK: View-Lifecycle
     
     /// View did load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        self.sendMailButton.setTitle("Send email", for: .normal)
+        self.sendMailButton.addTarget(self, action: #selector(self.mailButtonTapped(_:)), for: .touchUpInside)
     }
     
-    /// LoadView
-    override func loadView() {
-        self.view = self.label
+    @objc
+    private func mailButtonTapped(_ sender: UIButton) {
+        let data = MFMailData(emails: ["test@gmail.com"], subject: "My subject", messageBody: "Hello world! 😀")
+        let mailWrapped = MFMailComposeWrapper()
+        
+        mailWrapped.presentMailController(
+            from: self,
+            data: data,
+            presented: { isMFMailCompose in
+                print("Mail presented - \(isMFMailCompose)")
+            }, failedPresent: {
+                print("Failed present mail")
+            }
+        )
+        
+        mailWrapped.mailComposeControllerFinished = { error in
+            print("MailComposeController finished with error - \(String(describing: error))")
+        }
     }
-
 }
