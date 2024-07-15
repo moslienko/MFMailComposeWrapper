@@ -1,18 +1,12 @@
 <p align="center">
-   <img width="200" src="https://raw.githubusercontent.com/SvenTiigi/SwiftKit/gh-pages/readMeAssets/SwiftKitLogo.png" alt="MFMailComposeWrapper Logo">
+   <img width="200" src="https://moslienko.github.io/Assets/MFMailComposeWrapper/sdk.png" alt="MFMailComposeWrapper Logo">
 </p>
 
 <p align="center">
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.2-orange.svg?style=flat" alt="Swift 5.2">
    </a>
-   <a href="http://cocoapods.org/pods/MFMailComposeWrapper">
-      <img src="https://img.shields.io/cocoapods/v/MFMailComposeWrapper.svg?style=flat" alt="Version">
-   </a>
-   <a href="http://cocoapods.org/pods/MFMailComposeWrapper">
-      <img src="https://img.shields.io/cocoapods/p/MFMailComposeWrapper.svg?style=flat" alt="Platform">
-   </a>
-   <a href="https://github.com/Carthage/Carthage">
+      <a href="https://github.com/Carthage/Carthage">
       <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
    </a>
    <a href="https://github.com/apple/swift-package-manager">
